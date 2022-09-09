@@ -29,7 +29,8 @@ WHERE row_num > 1
 -- Double check if extra rows were deleted = both queries below return 3672!
 SELECT COUNT(*) FROM Udemy
 SELECT COUNT(DISTINCT course_id) FROM Udemy
-Count number of courses that have a fee (3362), number of courses that are free (310)
+
+-- Count number of courses that have a fee (3362), number of courses that are free (310)
 SELECT COUNT(is_paid) FROM Udemy WHERE is_paid = 1
 SELECT COUNT(is_paid) FROM Udemy WHERE is_paid = 0
 
@@ -50,7 +51,7 @@ SET year = SUBSTRING(published_timestamp, 1, CHARINDEX('-', published_timestamp)
 -- Check how many courses per year. Most published courses are from 2016 > 2015 > and 2017
 SELECT year, COUNT(*) FROM Udemy GROUP BY year ORDER BY COUNT(*) DESC
 
--- Identify the different types subjects available: Web Development, Graphic Design, Musical Instruments, Business Finance 
+-- Identify the types of subjects available: Web Development, Graphic Design, Musical Instruments, Business Finance 
 SELECT DISTINCT(subject) FROM Udemy
 
 -- Count number of lectures per subject: Web Development (1199), Business Finance (1191), Musical Instruments (680), Graphic Design (602)
